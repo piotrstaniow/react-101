@@ -1,0 +1,63 @@
+<!DOCTYPE html >
+<html>
+  <head>
+    <title>Introduction </title>
+    <meta charset="utf-8"/>
+    <meta name="author" content=" "/>
+    <meta name="description" content="Level Up 2017 "/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+    <link rel="icon" href="common/img/favicon.ico"/>
+    <link href="reveal.js-3.3.0/css/reveal.css" rel="stylesheet"/>
+    <link href="reveal.js-3.3.0/css/theme/black.css" rel="stylesheet"/>
+    <link href="common/css/common.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/><!-- Theme used for syntax highlighting of code -->
+    <link href="reveal.js-3.3.0/lib/css/zenburn.css" rel="stylesheet"/>
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js-3.3.0/css/print/pdf.css' : 'reveal.js-3.3.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+      
+      
+      
+    </script>
+  </head>
+</html>
+<body>
+  <div class="reveal">
+    <div class="slides">       
+      <section id="title-0" data-transition="slide">
+        <h2>JavaScript and Protractor</h2>
+        <body>
+          <ul class="credits">
+            <li>Paweł Kamiński</li>
+            <li>Daniel Lipowicz</li>
+          </ul>
+          <p class="credits">Level Up 2017  </p>
+        </body>
+      </section>
+    </div>
+  </div>
+  <script src="reveal.js-3.3.0/lib/js/head.min.js"></script>
+  <script src="reveal.js-3.3.0/js/reveal.js"></script>
+  <script>
+     Reveal.initialize({
+      // controls: true,
+     //  progress: true,
+       history: true,
+     //  center: true,
+     //  rollingLinks: true,
+    //   transition: "convex",
+       //- width: "90%",
+       //- height: 1.0,
+       dependencies: [
+         // Syntax highlight for <code> elements
+           {src: 'reveal.js-3.3.0/plugin/markdown/marked.js'},
+           {src: 'reveal.js-3.3.0/plugin/markdown/markdown.js'},
+           {src: 'reveal.js-3.3.0/plugin/notes/notes.js', async: true},
+           { src: 'reveal.js-3.3.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },         
+       ]
+     });
+  </script>
+</body>
