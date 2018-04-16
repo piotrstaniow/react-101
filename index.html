@@ -28,13 +28,76 @@
   <div class="reveal">
     <div class="slides">       
       <section id="title-0" data-transition="slide">
-        <h2>JavaScript and Protractor</h2>
+        <h2>React 101</h2>
         <body>
-          <ul class="credits">
-            <li>Paweł Kamiński</li>
-            <li>Daniel Lipowicz</li>
-          </ul>
-          <p class="credits">Level Up 2017  </p>
+          <p>30 minutes introduction to React framework</p>
+          <p>by  Piotr Staniów         </p>
+          <p class="credits">20 kwiecień 2018 Hotel Dębowy - Chapter day stuff :)</p>
+        </body>
+      </section>
+      <section id="jsx-1" data-transition="slide">
+        <h2> JSX</h2>
+        <body>
+          <pre class="fragment"><code class="js">  const element = <h1>Hello, world!</h1>;</code></pre>
+          <p class="credits"><a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a></p>
+        </body>
+      </section>
+      <section id="jsx-2" data-transition="slide">
+        <h2> Embedding Expressions in JSX</h2>
+        <body>
+          <pre class="fragment"><code class="js">  function formatName(user) {
+   return user.firstName + ' ' + user.lastName;
+ }
+ const user = {
+   firstName: 'Harper',
+   lastName: 'Perez'
+ };
+ const element = (
+   <h1>
+     Hello, {formatName(user)}!
+   </h1>
+ );
+ ReactDOM.render(
+   element,
+   document.getElementById('root')
+ );</code></pre>
+          <p class="credits"><a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a></p>
+        </body>
+      </section>
+      <section id="jsx-3" data-transition="slide">
+        <h2> JSX is an Expression Too</h2>
+        <body>
+          <pre class="fragment"><code class="js"> function getGreeting(user) {
+   if (user) {
+     return <h1>Hello, {formatName(user)}!</h1>;
+   }
+   return <h1>Hello, Stranger.</h1>;
+ }</code></pre>
+          <p class="credits"><a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a></p>
+        </body>
+      </section>
+      <section id="jsx-4" data-transition="slide">
+        <h2>  JSX Represents Objects</h2>
+        <body>
+          <pre class="fragment"><code class="js">  const element = (
+     <h1 className="greeting">
+       Hello, world!
+     </h1>
+   );</code></pre>
+          <pre class="fragment"><code class="js">  const element = React.createElement(
+   'h1',
+   {className: 'greeting'},
+   'Hello, world!'
+ );</code></pre>
+          <pre class="fragment"><code class="js"> // Note: this structure is simplified
+   const element = {
+     type: 'h1',
+     props: {
+       className: 'greeting',
+       children: 'Hello, world!'
+     }
+   };</code></pre>
+          <p class="credits"><a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a></p>
         </body>
       </section>
     </div>

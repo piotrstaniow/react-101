@@ -1,0 +1,19 @@
+extends layout.pug 
+
+block vars
+  - var title = 'jsx'
+
+block title
+        |  JSX is an Expression Too
+block content
+      pre.fragment
+        code.js 
+          | function getGreeting(user) {
+          |    if (user) {
+          |      return <h1>Hello, {formatName(user)}!</h1>;
+          |    }
+          |    return <h1>Hello, Stranger.</h1>;
+          |  }
+
+      p.credits
+        a(href="https://reactjs.org/docs/introducing-jsx.html") Introducing JSX
