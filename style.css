@@ -24,7 +24,11 @@
 }
 
 .reveal pre {
-     width: 95%;
+     width: 100%;
+}
+
+.reveal code.small {
+  font-size: 0.75em;
 }
 
 .reveal .bgImages img{

@@ -1,0 +1,25 @@
+extends layout.pug 
+
+block vars
+  - var title = 'funcional'
+
+block title
+        |  Extracting Components
+block content
+      pre.fragment
+        code.js 
+          |  function Comment(props) {
+          |    return (
+          |      <div className="Comment">
+          |        <UserInfo user={props.author} />
+          |        <div className="Comment-text">
+          |          {props.text}
+          |        </div>
+          |        <div className="Comment-date">
+          |          {formatDate(props.date)}
+          |        </div>
+          |      </div>
+          |    );
+          |  }
+      p.credits
+        a(href="https://reactjs.org/docs/components-and-props.html") Components and Props

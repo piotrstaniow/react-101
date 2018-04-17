@@ -1,0 +1,25 @@
+extends layout.pug 
+
+block vars
+  - var title = 'funcional'
+
+block title
+        |  Functional and Class Components
+block content
+      pre
+        code.js 
+          | function Welcome(props) {
+          |    return <h1>Hello, {props.name}</h1>;
+          |  }
+
+      pre.fragment
+        code.js 
+          | 
+          | class Welcome extends React.Component {
+          |   render() {
+          |    return <h1>Hello, {this.props.name}</h1>;
+          |  }
+          |}
+
+      p.credits
+        a(href="https://reactjs.org/docs/components-and-props.html") Components and Props

@@ -100,6 +100,137 @@
           <p class="credits"><a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a></p>
         </body>
       </section>
+      <section id="funcional-5" data-transition="slide">
+        <h2> Functional and Class Components</h2>
+        <body>
+          <pre><code class="js"> function Welcome(props) {
+   return <h1>Hello, {props.name}</h1>;
+ }</code></pre>
+          <pre class="fragment"><code class="js">  
+class Welcome extends React.Component {
+  render() {
+   return <h1>Hello, {this.props.name}</h1>;
+ }
+}</code></pre>
+          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
+        </body>
+      </section>
+      <section id="funcional-6" data-transition="slide">
+        <h2> Rendering a Component</h2>
+        <body>
+          <pre><code class="js">  
+function Welcome(props) {
+   return <h1>Hello, {props.name}</h1>;
+ }
+ const element = <Welcome name="Sara" />;
+ ReactDOM.render(
+   element,
+   document.getElementById('root')
+ );</code></pre>
+          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
+        </body>
+      </section>
+      <section id="funcional-7" data-transition="slide">
+        <h2> Functional and Class Components</h2>
+        <body>
+          <pre><code class="js"> function Welcome(props) {
+   return <h1>Hello, {props.name}</h1>;
+ }</code></pre>
+          <pre class="fragment"><code class="js">  
+class Welcome extends React.Component {
+  render() {
+   return <h1>Hello, {this.props.name}</h1>;
+ }
+}</code></pre>
+          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
+        </body>
+      </section>
+      <section id="funcional-8" data-transition="slide">
+        <h2> Extracting Components</h2>
+        <body>
+          <pre><code class="js small"> function Comment(props) {
+ return (
+  <div className="Comment">
+    <div className="UserInfo">
+      <img className="Avatar"
+        src={props.author.avatarUrl}
+        alt={props.author.name}
+      />
+      <div className="UserInfo-name">
+        {props.author.name}
+      </div>
+    </div>
+    <div className="Comment-text"> {props.text} </div>
+    <div className="Comment-date"> {formatDate(props.date)}</div>
+  </div>
+ );
+}</code></pre>
+          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
+        </body>
+      </section>
+      <section id="funcional-9" data-transition="slide">
+        <h2> Extracting Components</h2>
+        <body>
+          <pre><code class="js"> function Avatar(props) {
+   return (
+     <img className="Avatar"
+       src={props.user.avatarUrl}
+       alt={props.user.name}
+     />
+   );
+ }</code></pre>
+          <pre class="fragment"><code class="js">  function UserInfo(props) {
+   return (
+     <div className="UserInfo">
+       <Avatar user={props.user} />
+       <div className="UserInfo-name">
+         {props.user.name}
+       </div>
+     </div>
+   );
+ }</code></pre>
+          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
+        </body>
+      </section>
+      <section id="funcional-10" data-transition="slide">
+        <h2> Extracting Components</h2>
+        <body>
+          <pre><code class="js small"> function Comment(props) {
+   return (
+     <div className="Comment">
+       <div className="UserInfo">
+         <Avatar user={props.author} />
+         <div className="UserInfo-name">
+           {props.author.name}
+         </div>
+       </div>
+       <div className="Comment-text">{props.text}</div>
+       <div className="Comment-date">{formatDate(props.date)}</div>
+     </div>
+   );
+ }</code></pre>
+          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
+        </body>
+      </section>
+      <section id="funcional-11" data-transition="slide">
+        <h2> Extracting Components</h2>
+        <body>
+          <pre class="fragment"><code class="js">  function Comment(props) {
+   return (
+     <div className="Comment">
+       <UserInfo user={props.author} />
+       <div className="Comment-text">
+         {props.text}
+       </div>
+       <div className="Comment-date">
+         {formatDate(props.date)}
+       </div>
+     </div>
+   );
+ }</code></pre>
+          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
+        </body>
+      </section>
     </div>
   </div>
   <script src="reveal.js-3.3.0/lib/js/head.min.js"></script>
