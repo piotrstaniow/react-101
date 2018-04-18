@@ -1,0 +1,27 @@
+extends layout.pug 
+
+block vars
+  - var title = 'updating'
+
+block title
+        | Adding complexity -  updating state
+block content
+      pre.fragment
+        code.js.small 
+          |  class FancyInput extends React.Component {
+          |    constructor(props) {
+          |      super(props); // This is required
+          |      const { initialValue } = props;
+          |      this.state = { value: initialValue, somethingElse: 5 };
+          |    }
+
+          |    handleChange(event) {
+          |      console.log('Input value has changed!', event.target.value);
+          |      this.setState({ value: event.target.value}); // Asynchronous!
+          |    }
+
+          |    render() {
+          |      const { value } = this.state;
+          |      return <input type="text" value={value} onChange={this.handleChange.bind(this)}/>;
+          |    }
+          |  }

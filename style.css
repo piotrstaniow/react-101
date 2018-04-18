@@ -18,6 +18,9 @@
   background-color: #222;
 }
 
+.reveal p.small{
+  font-size: 0.7em;
+}
 
 .reveal .credits{
   font-size: 0.6em;

@@ -1,0 +1,24 @@
+extends layout.pug 
+
+block vars
+  - var title = 'state'
+
+block title
+        |  Extracting Components
+block content
+      pre.fragment
+        code.js.small 
+          | class FancyInput extends React.Component {
+          |    constructor(props) {
+          |      super(props); // This is required
+          |      const { initialValue } = props;
+          |      this.state = {
+          |        value: initialValue,
+          |      };
+          |    }
+
+          |    render() {
+          |      const { value } = this.state;
+          |      return <input type="text" value={value} />;
+          |    }
+          |  }

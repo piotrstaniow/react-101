@@ -1,0 +1,28 @@
+extends layout.pug 
+
+block vars
+  - var title = 'event'
+
+block title
+        |  Adding complexity - event handling
+block content
+      pre.fragment
+        code.js.small 
+          |class FancyInput extends React.Component {
+          |    constructor(props) {
+          |      super(props); // This is required
+          |      const { initialValue } = props;
+          |      this.state = {
+          |        value: initialValue,
+          |      };
+          |    }
+
+          |    handleChange(event) {
+          |      console.log('Input value has changed!', event.target.value);
+          |    }
+
+          |    render() {
+          |      const { value } = this.state;
+          |      return <input type="text" value={value} onChange={this.handleChange}/>;
+          |    }
+          |  }

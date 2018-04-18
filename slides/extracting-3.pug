@@ -1,12 +1,12 @@
 extends layout.pug 
 
 block vars
-  - var title = 'funcional'
+  - var title = 'extracting'
 
 block title
         |  Extracting Components
 block content
-      pre
+      pre.fragment
         code.js.small 
           | function Comment(props) {
           |    return (

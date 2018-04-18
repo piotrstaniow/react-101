@@ -1,32 +1,22 @@
 extends layout.pug 
 
 block vars
-  - var title = 'jsx'
+  - var title = 'embedding'
 
 block title
         |  Embedding Expressions in JSX
 block content
       pre.fragment
         code.js 
-          |  function formatName(user) {
-          |    return user.firstName + ' ' + user.lastName;
-          |  }
-
-          |  const user = {
-          |    firstName: 'Harper',
-          |    lastName: 'Perez'
-          |  };
-
-          |  const element = (
+          |  ReactDOM.render(
           |    <h1>
           |      Hello, {formatName(user)}!
-          |    </h1>
-          |  );
-
-          |  ReactDOM.render(
-          |    element,
+          |    </h1>,
           |    document.getElementById('root')
           |  );
+      h3 
+          |  React app has single root
+
 
       p.credits
         a(href="https://reactjs.org/docs/introducing-jsx.html") Introducing JSX
