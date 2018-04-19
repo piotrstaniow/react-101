@@ -10,10 +10,10 @@ block content
         code.js 
           | function Avatar(props) {
           |    return (
-          |      <img className="Avatar"
+          |      &lt;img className="Avatar"
           |        src={props.user.avatarUrl}
           |        alt={props.user.name}
-          |      />
+          |      /&gt;
           |    );
           |  }
 
@@ -22,12 +22,12 @@ block content
         code.js 
           |  function UserInfo(props) {
           |    return (
-          |      <div className="UserInfo">
-          |        <Avatar user={props.user} />
-          |        <div className="UserInfo-name">
+          |      &lt;div className="UserInfo"&gt;
+          |        &lt;Avatar user={props.user} /&gt;
+          |        &lt;div className="UserInfo-name"&gt;
           |          {props.user.name}
-          |        </div>
-          |      </div>
+          |        &lt;/div&gt;
+          |      &lt;/div&gt;
           |    );
           |  }
       p.credits

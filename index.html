@@ -39,7 +39,7 @@
       <section id="jsx-1" data-transition="slide">
         <h2> JSX</h2>
         <body>
-          <pre class="fragment"><code class="js">  const element = <h1>Hello, world!</h1>;</code></pre>
+          <pre class="fragment"><code class="js">  const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;</code></pre>
           <p class="credits"><a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a></p>
         </body>
       </section>
@@ -47,9 +47,9 @@
         <h2> Embedding Expressions in JSX</h2>
         <body>
           <pre class="fragment"><code class="js">  ReactDOM.render(
-   <h1>
+   &lt;h1&gt;
      Hello, {formatName(user)}!
-   </h1>,
+   &lt;/h1&gt;,
    document.getElementById('root')
  );</code></pre>
           <h3>
@@ -62,9 +62,9 @@
         <body>
           <pre class="fragment"><code class="js"> function getGreeting(user) {
    if (user) {
-     return <h1>Hello, {formatName(user)}!</h1>;
+     return &lt;h1&gt;Hello, {formatName(user)}!&lt;/h1&gt;;
    }
-   return <h1>Hello, Stranger.</h1>;
+   return &lt;h1&gt;Hello, Stranger.&lt;/h1&gt;;
  }</code></pre>
           <p class="credits"><a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a></p>
         </body>
@@ -73,9 +73,9 @@
         <h2>  JSX Represents Objects</h2>
         <body>
           <pre class="fragment"><code class="js">  const element = (
-     <h1 className="greeting">
+     &lt;h1 className="greeting"&gt;
        Hello, world!
-     </h1>
+     &lt;/h1&gt;
    );</code></pre>
           <pre class="fragment"><code class="js">  const element = React.createElement(
    'h1',
@@ -103,12 +103,12 @@
         <h2> Functional and Class Components</h2>
         <body>
           <pre class="fragment"><code class="js"> function Welcome(props) {
-   return <h1>Hello, {props.name}</h1>;
+   return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
  }</code></pre>
           <pre class="fragment"><code class="js">  
 class Welcome extends React.Component {
   render() {
-   return <h1>Hello, {this.props.name}</h1>;
+   return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;;
  }
 }</code></pre>
           <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
@@ -119,9 +119,9 @@ class Welcome extends React.Component {
         <body>
           <pre class="fragment"><code class="js">  
   function Welcome(props) {
-     return <h1>Hello, {props.name}</h1>;
+     return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
    }
-   const element = <welcome name="Sara">;
+   const element = &lt;welcome name="Sara"&gt;;
    ReactDOM.render(
      element,
      document.getElementById('root')
@@ -133,21 +133,21 @@ class Welcome extends React.Component {
         <h2> Composing Components</h2>
         <body>
           <pre class="fragment"><code class="js"> function Welcome(props) {
-   return <h1>Hello, {props.name}</h1>;
+   return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
  }</code></pre>
           <pre class="fragment"><code class="js">  
 function App() {
    return (
-     <div>
-       <Welcome name="Sara" />
-       <Welcome name="Cahal" />
-       <Welcome name="Edite" />
-     </div>
+     &lt;div&gt;
+       &lt;Welcome name="Sara"/&gt;
+       &lt;Welcome name="Cahal"/&gt;
+       &lt;Welcome name="Edite"/&gt;
+     &lt;/div&gt;
    );
  }</code></pre>
           <pre class="fragment"><code class="js">  
 ReactDOM.render(
-   <App />,
+   &lt;App /&gt;,
    document.getElementById('root')
  );</code></pre>
           <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
@@ -158,19 +158,19 @@ ReactDOM.render(
         <body>
           <pre class="fragment"><code class="js small"> function Comment(props) {
  return (
-  <div className="Comment">
-    <div className="UserInfo">
-      <img className="Avatar"
+  &lt;div className="Comment"&gt;
+    &lt;div className="UserInfo"&gt;
+      &lt;img className="Avatar"
         src={props.author.avatarUrl}
         alt={props.author.name}
-      />
-      <div className="UserInfo-name">
+      /&gt;
+      &lt;div className="UserInfo-name"&gt;
         {props.author.name}
-      </div>
-    </div>
-    <div className="Comment-text"> {props.text} </div>
-    <div className="Comment-date"> {formatDate(props.date)}</div>
-  </div>
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div className="Comment-text"&gt; {props.text} &lt;/div&gt;
+    &lt;div className="Comment-date"&gt; {formatDate(props.date)}&lt;/div&gt;
+  &lt;/div&gt;
  );
 }</code></pre>
           <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
@@ -181,20 +181,20 @@ ReactDOM.render(
         <body>
           <pre class="fragment"><code class="js"> function Avatar(props) {
    return (
-     <img className="Avatar"
+     &lt;img className="Avatar"
        src={props.user.avatarUrl}
        alt={props.user.name}
-     />
+     /&gt;
    );
  }</code></pre>
           <pre class="fragment"><code class="js">  function UserInfo(props) {
    return (
-     <div className="UserInfo">
-       <Avatar user={props.user} />
-       <div className="UserInfo-name">
+     &lt;div className="UserInfo"&gt;
+       &lt;Avatar user={props.user} /&gt;
+       &lt;div className="UserInfo-name"&gt;
          {props.user.name}
-       </div>
-     </div>
+       &lt;/div&gt;
+     &lt;/div&gt;
    );
  }</code></pre>
           <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
@@ -205,16 +205,16 @@ ReactDOM.render(
         <body>
           <pre class="fragment"><code class="js small"> function Comment(props) {
    return (
-     <div className="Comment">
-       <div className="UserInfo">
-         <Avatar user={props.author} />
-         <div className="UserInfo-name">
+     &lt;div className="Comment"&gt;
+       &lt;div className="UserInfo"&gt;
+         &lt;Avatar user={props.author} /&gt;
+         &lt;div className="UserInfo-name"&gt;
            {props.author.name}
-         </div>
-       </div>
-       <div className="Comment-text">{props.text}</div>
-       <div className="Comment-date">{formatDate(props.date)}</div>
-     </div>
+         &lt;/div&gt;
+       &lt;/div&gt;
+       &lt;div className="Comment-text"&gt;{props.text}&lt;/div&gt;
+       &lt;div className="Comment-date"&gt;{formatDate(props.date)}&lt;/div&gt;
+     &lt;/div&gt;
    );
  }</code></pre>
           <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
@@ -225,15 +225,15 @@ ReactDOM.render(
         <body>
           <pre class="fragment"><code class="js">  function Comment(props) {
    return (
-     <div className="Comment">
-       <UserInfo user={props.author} />
-       <div className="Comment-text">
+     &lt;div className="Comment"&gt;
+       &lt;UserInfo user={props.author} /&gt;
+       &lt;div className="Comment-text"&gt;
          {props.text}
-       </div>
-       <div className="Comment-date">
+       &lt;/div&gt;
+       &lt;div className="Comment-date"&gt;
          {formatDate(props.date)}
-       </div>
-     </div>
+       &lt;/div&gt;
+     &lt;/div&gt;
    );
  }</code></pre>
           <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
@@ -252,7 +252,7 @@ ReactDOM.render(
    }
    render() {
      const { value } = this.state;
-     return <input type="text" value={value} />;
+     return &lt;input type="text" value={value} /&gt;;
    }
  }</code></pre>
         </body>
@@ -273,7 +273,7 @@ ReactDOM.render(
    }
    render() {
      const { value } = this.state;
-     return <input type="text" value={value} onChange={this.handleChange}/>;
+     return &lt;input type="text" value={value} onChange={this.handleChange}/&gt;;
    }
  }</code></pre>
         </body>
@@ -315,10 +315,14 @@ ReactDOM.render(
      const styles = {
        border: `3px solid ${value === 'zielony' ? 'green' : 'red'}`,
      };
-     return <input type="text" value={value} style={style} onChange={this.handleChange} />;
+     return &lt;input type="text" value={value} style={style} onChange={this.handleChange} /&gt;
    }
  }</code></pre>
         </body>
+      </section>
+      <section id="end-17" data-transition="slide">
+        <h2></h2>
+        <body><img src="img/theend.png"/></body>
       </section>
     </div>
   </div>

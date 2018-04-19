@@ -9,7 +9,7 @@ block content
       pre.fragment
         code.js 
           | function Welcome(props) {
-          |    return <h1>Hello, {props.name}</h1>;
+          |    return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
           |  }
 
       pre.fragment
@@ -17,11 +17,11 @@ block content
           | 
           | function App() {
           |    return (
-          |      <div>
-          |        <Welcome name="Sara" />
-          |        <Welcome name="Cahal" />
-          |        <Welcome name="Edite" />
-          |      </div>
+          |      &lt;div&gt;
+          |        &lt;Welcome name="Sara"/&gt;
+          |        &lt;Welcome name="Cahal"/&gt;
+          |        &lt;Welcome name="Edite"/&gt;
+          |      &lt;/div&gt;
           |    );
           |  }
 
@@ -29,7 +29,7 @@ block content
         code.js 
           | 
           |ReactDOM.render(
-          |    <App />,
+          |    &lt;App /&gt;,
           |    document.getElementById('root')
           |  );
 
