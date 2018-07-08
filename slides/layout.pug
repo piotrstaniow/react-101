@@ -2,9 +2,9 @@
 block vars
 
 
-- var pageId = title+ "-"+  counter++ 
+- var pageId = (counter++) + "-" + title
 section(id= pageId, data-transition=transition)
   h2
     block title
   body
-    block content  
+    block content

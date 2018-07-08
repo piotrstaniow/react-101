@@ -1,0 +1,32 @@
+extends ../layout.pug 
+
+block vars
+  - var title = 'react-composing'
+
+block title
+  | Composing components
+block content
+  pre
+    code.js.jsx
+      | function Welcome(props) {
+      |   return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+      | }
+
+  pre.fragment
+    code.js.jsx
+      | export class App extends React.Component {
+      |   return (
+      |     &lt;div&gt;
+      |       &lt;Welcome name="Sara" /&gt;
+      |       &lt;Welcome name="Cahal" /&gt;
+      |       &lt;Welcome name="Edite" /&gt;
+      |     &lt;/div&gt;
+      |   );
+      | }
+
+  pre.fragment
+    code.js.jsx
+      | ReactDOM.render(
+      |   &lt;App /&gt;,
+      |   document.getElementById('root')
+      | );

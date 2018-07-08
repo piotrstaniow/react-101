@@ -1,0 +1,37 @@
+extends ../layout.pug 
+
+block vars
+  - var title = 'jsx-transpiling'
+
+block title
+  | JSX Harmony
+block content
+  p
+    | JSX is transpiled* to React functions calls
+  pre.fragment
+    code.js.jsx
+      | const element = &lt;div className="header"&gt;Hello world!&lt;/div&gt;;
+  div.fragment
+    small
+      | is transpiled to:
+    pre.flat
+      code.js
+        | const element = React.createElement({
+        |   'div',
+        |   { className: 'header' },
+        |   'Hello world!'
+        | });
+  div.fragment
+    small
+      | and the call returns:
+    pre.flat
+      code.js
+        | const element = {
+        |   type: 'div',
+        |   props: {
+        |     className: 'header',
+        |     children: 'Hello world!',
+        |   },
+        | };
+  small
+    | *mix of words: translate & compile
