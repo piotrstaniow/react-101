@@ -1,0 +1,26 @@
+extends ../layout.pug
+
+block vars
+  - var title = 'events'
+
+block title
+  | Styles
+block content
+  pre
+    code.js.jsx.small
+      | class FancyInput extends React.Component {
+      |   constructor(props) {
+      |     super(props); // Call to base class is required
+      |     this.state = { value: props.initialValue, other: 5 };
+      |   }
+      |
+      |   handleChange(event) {
+      |     this.setState({ value: event.target.value })
+      |   }
+      |
+      |   render() {
+      |     const { value } = this.state;
+      |     const style = { border: `3px solid ${value === 'zielony' ? 'green' : 'red'}` };
+      |     return &lt;input type="text" style={style} value={value} onChange={this.handleChange.bind(this)} /&gt;;
+      |   }
+      | }

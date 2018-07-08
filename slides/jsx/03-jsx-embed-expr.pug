@@ -1,0 +1,26 @@
+extends ../layout.pug 
+
+block vars
+  - var title = 'jsx-embedding-expressions'
+
+block title
+  | JSX Harmony
+block content
+  p
+    | You can embed JavaScript expressions in JSX too
+  small
+    | { Simply put them in brackets }
+  pre.fragment
+    code.js.jsx
+      | const name = 'Thomas';
+      | const element = &lt;div className="header"&gt;Hello {name}!&lt;/div&gt;;
+  div.fragment
+    small
+      | You can go crazy with it too...
+    pre.flat
+      code.js.jsx
+        | const element = (
+        |   &lt;ul&gt;
+        |     { ['A', 'B', 'C'].map(el =&gt; &lt;li key={el}&gt;{el}&lt;/li&gt;) }
+        |   &lt;/ul&gt;
+        | );

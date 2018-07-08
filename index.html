@@ -1,209 +1,86 @@
-<!DOCTYPE html >
-<html>
-  <head>
-    <title>Introduction </title>
-    <meta charset="utf-8"/>
-    <meta name="author" content=" "/>
-    <meta name="description" content="Level Up 2017 "/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
-    <link rel="icon" href="common/img/favicon.ico"/>
-    <link href="reveal.js-3.3.0/css/reveal.css" rel="stylesheet"/>
-    <link href="reveal.js-3.3.0/css/theme/black.css" rel="stylesheet"/>
-    <link href="common/css/common.css" rel="stylesheet"/>
-    <link href="style.css" rel="stylesheet"/><!-- Theme used for syntax highlighting of code -->
-    <link href="reveal.js-3.3.0/lib/css/zenburn.css" rel="stylesheet"/>
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js-3.3.0/css/print/pdf.css' : 'reveal.js-3.3.0/css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-      
-      
-      
-    </script>
-  </head>
-</html>
-<body>
-  <div class="reveal">
-    <div class="slides">       
-      <section id="title-0" data-transition="slide">
-        <h2>React 101</h2>
-        <body>
-          <p>30 minutes introduction to React framework</p>
-          <p>by  Piotr Staniów        </p>
-          <p class="small">(and Paweł Kamiński)</p>
-          <p class="credits">20 kwiecień 2018 Hotel Dębowy - Chapter day stuff :)</p>
-        </body>
-      </section>
-      <section id="jsx-1" data-transition="slide">
-        <h2> JSX</h2>
-        <body>
-          <pre class="fragment"><code class="js">  const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;</code></pre>
-          <p class="credits"><a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a></p>
-        </body>
-      </section>
-      <section id="embedding-2" data-transition="slide">
-        <h2> Embedding Expressions in JSX</h2>
-        <body>
-          <pre class="fragment"><code class="js">  ReactDOM.render(
-   &lt;h1&gt;
-     Hello, {formatName(user)}!
-   &lt;/h1&gt;,
-   document.getElementById('root')
- );</code></pre>
-          <h3>
-              React app has single root</h3>
-          <p class="credits"><a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a></p>
-        </body>
-      </section>
-      <section id="expression-3" data-transition="slide">
-        <h2> JSX is an Expression Too</h2>
-        <body>
-          <pre class="fragment"><code class="js"> function getGreeting(user) {
-   if (user) {
-     return &lt;h1&gt;Hello, {formatName(user)}!&lt;/h1&gt;;
-   }
-   return &lt;h1&gt;Hello, Stranger.&lt;/h1&gt;;
- }</code></pre>
-          <p class="credits"><a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a></p>
-        </body>
-      </section>
-      <section id="objects-4" data-transition="slide">
-        <h2>  JSX Represents Objects</h2>
-        <body>
-          <pre class="fragment"><code class="js">  const element = (
-     &lt;h1 className="greeting"&gt;
-       Hello, world!
-     &lt;/h1&gt;
-   );</code></pre>
-          <pre class="fragment"><code class="js">  const element = React.createElement(
-   'h1',
-   {className: 'greeting'},
-   'Hello, world!'
- );</code></pre>
-          <pre class="fragment"><code class="js"> // Note: this structure is simplified
-   const element = {
-     type: 'h1',
-     props: {
-       className: 'greeting',
-       children: 'Hello, world!'
-     }
-   };</code></pre>
-          <p class="credits"><a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a></p>
-        </body>
-      </section>
-      <section id="writing-5" data-transition="slide">
-        <h2> Writing Components</h2>
-        <body>
-          <p>The main purpose of web frameworks is to encapsulate custom HTML elements logic </p>
-        </body>
-      </section>
-      <section id="funcional-6" data-transition="slide">
-        <h2> Functional and Class Components</h2>
-        <body>
-          <pre class="fragment"><code class="js"> function Welcome(props) {
-   return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
- }</code></pre>
-          <pre class="fragment"><code class="js">  
-class Welcome extends React.Component {
-  render() {
-   return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;;
- }
-}</code></pre>
-          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
-        </body>
-      </section>
-      <section id="rendering-7" data-transition="slide">
-        <h2> Rendering a Component</h2>
-        <body>
-          <pre class="fragment"><code class="js">  
-  function Welcome(props) {
-     return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
-   }
-   const element = &lt;welcome name="Sara"&gt;;
-   ReactDOM.render(
-     element,
-     document.getElementById('root')
-   );</code></pre>
-          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
-        </body>
-      </section>
-      <section id="composing-8" data-transition="slide">
-        <h2> Composing Components</h2>
-        <body>
-          <pre class="fragment"><code class="js"> function Welcome(props) {
-   return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
- }</code></pre>
-          <pre class="fragment"><code class="js">  
-function App() {
-   return (
-     &lt;div&gt;
-       &lt;Welcome name="Sara"/&gt;
-       &lt;Welcome name="Cahal"/&gt;
-       &lt;Welcome name="Edite"/&gt;
-     &lt;/div&gt;
-   );
- }</code></pre>
-          <pre class="fragment"><code class="js">  
+<!DOCTYPE html ><html><head><title>Reactshop - Introduction to React </title><meta charset="utf-8"/><meta name="author" content=" "/><meta name="description" content="Reactshop 2018"/><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/><link rel="icon" href="common/img/favicon.ico"/><link href="reveal.js-3.3.0/css/reveal.css" rel="stylesheet"/><link href="reveal.js-3.3.0/css/theme/black.css" rel="stylesheet"/><link href="common/css/common.css" rel="stylesheet"/><link href="style.css" rel="stylesheet"/><!-- Theme used for syntax highlighting of code --><link href="reveal.js-3.3.0/lib/css/zenburn.css" rel="stylesheet"/><script>var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js-3.3.0/css/print/pdf.css' : 'reveal.js-3.3.0/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+
+</script></head></html><body><div class="reveal"><div class="slides">       <section id="0-title" data-transition="slide"><h2>Reactshop</h2><body><p>Introduction to React</p><p class="small">Workshop by Piotr Staniów</p></body></section><section id="1-agenda" data-transition="slide"><h2>Reactshop - Agenda</h2><body><ul><li><em>ES6</em> recap</li><li>Introduction to <em>JSX</em></li><li>Introduction to <em>React</em></li><li><em>Reactshop</em> - live coding session</li></ul></body></section><section id="2-jsx-intro" data-transition="slide"><h2>JSX Harmony</h2><body><ul><li class="fragment">It's an extension of JavaScript</li><li class="fragment">Allows embedding XML in JavaScript</li><li class="fragment">It's not required to use React but it's convenient</li></ul></body></section><section id="3-jsx-expressions" data-transition="slide"><h2>JSX Harmony</h2><body><p>JSX allows using XML as an expression</p><pre class="fragment"><code class="js">const value = 5 + 4;</code></pre><pre class="fragment"><code class="js jsx">const element = &lt;h1&gt;Hello world&lt;/h1&gt;;</code></pre></body></section><section id="4-jsx-transpiling" data-transition="slide"><h2>JSX Harmony</h2><body><p>JSX is transpiled* to React functions calls</p><pre class="fragment"><code class="js jsx">const element = &lt;div className="header"&gt;Hello world!&lt;/div&gt;;</code></pre><div class="fragment"><small>is transpiled to:</small><pre class="flat"><code class="js">const element = React.createElement({
+  'div',
+  { className: 'header' },
+  'Hello world!'
+});</code></pre></div><div class="fragment"><small>and the call returns:</small><pre class="flat"><code class="js">const element = {
+  type: 'div',
+  props: {
+    className: 'header',
+    children: 'Hello world!',
+  },
+};</code></pre></div><small>*mix of words: translate & compile</small></body></section><section id="5-jsx-embedding-expressions" data-transition="slide"><h2>JSX Harmony</h2><body><p>You can embed JavaScript expressions in JSX too</p><small>{ Simply put them in brackets }</small><pre class="fragment"><code class="js jsx">const name = 'Thomas';
+const element = &lt;div className="header"&gt;Hello {name}!&lt;/div&gt;;</code></pre><div class="fragment"><small>You can go crazy with it too...</small><pre class="flat"><code class="js jsx">const element = (
+  &lt;ul&gt;
+    { ['A', 'B', 'C'].map(el =&gt; &lt;li key={el}&gt;{el}&lt;/li&gt;) }
+  &lt;/ul&gt;
+);</code></pre></div></body></section><section id="6-jsx-outro" data-transition="slide"><h2>JSX Harmony</h2><body><p></p>That's it for JSX!</body></section><section id="7-react-intro" data-transition="slide"><h2>React</h2><body><p class="blockquote">The main purpose of each web framework is to extend HTML with custom <code>&lt;elements&gt;</code> and attributes</p><em class="fragment">...and to encapsulate some logic tied to them.</em></body></section><section id="8-react-dom" data-transition="slide"><h2>React DOM</h2><body><p>React is used to build Single Page Applications (SPA) 
+and&nbsp;hence it has a single root component.</p><pre class="fragment"><code class="js jsx">import React from 'react';
+import ReactDOM from 'react-dom';
+
 ReactDOM.render(
-   &lt;App /&gt;,
-   document.getElementById('root')
- );</code></pre>
-          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
-        </body>
-      </section>
-      <section id="extracting-9" data-transition="slide">
-        <h2> Extracting Components</h2>
-        <body>
-          <pre class="fragment"><code class="js small"> function Comment(props) {
- return (
-  &lt;div className="Comment"&gt;
-    &lt;div className="UserInfo"&gt;
-      &lt;img className="Avatar"
+  <h1>Hello world</h1>,
+  document.querySelector('div#root'),
+);</code></pre></body></section><section id="9-react-components" data-transition="slide"><h2>Components</h2><body><p>There are two ways of writing components:</p><div class="fragment"><p class="small">Class components</p><pre><code class="js jsx">import React from 'react';
+
+export class App extends React.Component {
+  render() {
+    return <h1>Welcome, {this.props.name}!</h1>;
+  }
+}</code></pre></div><div class="fragment"><p class="small">Functional (stateless) components</p><pre><code class="js jsx">import React from 'react';
+
+export function Welcome(props) {
+  return <h1>Welcome, {props.name}!</h1>;
+}</code></pre></div></body></section><section id="10-react-composing" data-transition="slide"><h2>Composing components</h2><body><pre><code class="js jsx">function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}</code></pre><pre class="fragment"><code class="js jsx">export class App extends React.Component {
+  return (
+    &lt;div&gt;
+      &lt;Welcome name="Sara" /&gt;
+      &lt;Welcome name="Cahal" /&gt;
+      &lt;Welcome name="Edite" /&gt;
+    &lt;/div&gt;
+  );
+}</code></pre><pre class="fragment"><code class="js jsx">ReactDOM.render(
+  &lt;App /&gt;,
+  document.getElementById('root')
+);</code></pre></body></section><section id="11-react-extracting" data-transition="slide"><h2> Extracting Components</h2><body><pre><code class="js small">export const Comment = (props) => (
+  &lt;div className="comment"&gt;
+    &lt;div className="user-info"&gt;
+      &lt;img className="avatar"
         src={props.author.avatarUrl}
         alt={props.author.name}
       /&gt;
-      &lt;div className="UserInfo-name"&gt;
+      &lt;div className="user-name"&gt;
         {props.author.name}
       &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div className="Comment-text"&gt; {props.text} &lt;/div&gt;
-    &lt;div className="Comment-date"&gt; {formatDate(props.date)}&lt;/div&gt;
+    &lt;div className="comment-text"&gt; {props.text} &lt;/div&gt;
+    &lt;div className="comment-date"&gt; {formatDate(props.date)}&lt;/div&gt;
   &lt;/div&gt;
- );
-}</code></pre>
-          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
-        </body>
-      </section>
-      <section id="extracting-10" data-transition="slide">
-        <h2> Extracting Components</h2>
-        <body>
-          <pre class="fragment"><code class="js"> function Avatar(props) {
+);</code></pre><p class="small">Avatar and user info don't belong here</p></body></section><section id="12-react-extracting" data-transition="slide"><h2> Extracting Components</h2><body><pre><code class="js jsx">function Avatar(props) {
    return (
      &lt;img className="Avatar"
        src={props.user.avatarUrl}
        alt={props.user.name}
      /&gt;
    );
- }</code></pre>
-          <pre class="fragment"><code class="js">  function UserInfo(props) {
-   return (
-     &lt;div className="UserInfo"&gt;
-       &lt;Avatar user={props.user} /&gt;
-       &lt;div className="UserInfo-name"&gt;
-         {props.user.name}
-       &lt;/div&gt;
-     &lt;/div&gt;
-   );
- }</code></pre>
-          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
-        </body>
-      </section>
-      <section id="extracting-11" data-transition="slide">
-        <h2> Extracting Components</h2>
-        <body>
-          <pre class="fragment"><code class="js small"> function Comment(props) {
+ }</code></pre><pre><code class="js jsx">function UserInfo(props) {
+  return (
+    &lt;div className="UserInfo"&gt;
+      &lt;Avatar user={props.user} /&gt;
+      &lt;div className="UserInfo-name"&gt;
+        {props.user.name}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}</code></pre><p class="small">Let's see it in action...</p></body></section><section id="13-react-extracting" data-transition="slide"><h2> Extracting Components</h2><body><pre><code class="js small"> function Comment(props) {
    return (
      &lt;div className="Comment"&gt;
        &lt;div className="UserInfo"&gt;
@@ -216,135 +93,89 @@ ReactDOM.render(
        &lt;div className="Comment-date"&gt;{formatDate(props.date)}&lt;/div&gt;
      &lt;/div&gt;
    );
- }</code></pre>
-          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
-        </body>
-      </section>
-      <section id="extracting-12" data-transition="slide">
-        <h2> Extracting Components</h2>
-        <body>
-          <pre class="fragment"><code class="js">  function Comment(props) {
-   return (
-     &lt;div className="Comment"&gt;
-       &lt;UserInfo user={props.author} /&gt;
-       &lt;div className="Comment-text"&gt;
-         {props.text}
-       &lt;/div&gt;
-       &lt;div className="Comment-date"&gt;
-         {formatDate(props.date)}
-       &lt;/div&gt;
-     &lt;/div&gt;
-   );
- }</code></pre>
-          <p class="credits"><a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a></p>
-        </body>
-      </section>
-      <section id="state-13" data-transition="slide">
-        <h2> Extracting Components</h2>
-        <body>
-          <pre class="fragment"><code class="js small"> class FancyInput extends React.Component {
-   constructor(props) {
-     super(props); // This is required
-     const { initialValue } = props;
-     this.state = {
-       value: initialValue,
-     };
-   }
-   render() {
-     const { value } = this.state;
-     return &lt;input type="text" value={value} /&gt;;
-   }
- }</code></pre>
-        </body>
-      </section>
-      <section id="event-14" data-transition="slide">
-        <h2> Adding complexity - event handling</h2>
-        <body>
-          <pre class="fragment"><code class="js small"> class FancyInput extends React.Component {
-   constructor(props) {
-     super(props); // This is required
-     const { initialValue } = props;
-     this.state = {
-       value: initialValue,
-     };
-   }
-   handleChange(event) {
-     console.log('Input value has changed!', event.target.value);
-   }
-   render() {
-     const { value } = this.state;
-     return &lt;input type="text" value={value} onChange={this.handleChange}/&gt;;
-   }
- }</code></pre>
-        </body>
-      </section>
-      <section id="updating-15" data-transition="slide">
-        <h2>Adding complexity -  updating state</h2>
-        <body>
-          <pre class="fragment"><code class="js small">  class FancyInput extends React.Component {
-   constructor(props) {
-     super(props); // This is required
-     const { initialValue } = props;
-     this.state = { value: initialValue, somethingElse: 5 };
-   }
-   handleChange(event) {
-     console.log('Input value has changed!', event.target.value);
-     this.setState({ value: event.target.value}); // Asynchronous!
-   }
-   render() {
-     const { value } = this.state;
-     return <input type="text" value={value} onChange={this.handleChange.bind(this)}/>;
-   }
- }</code></pre>
-        </body>
-      </section>
-      <section id="styling-16" data-transition="slide">
-        <h2>Adding complexity - styling</h2>
-        <body>
-          <pre class="fragment"><code class="js small"> class FancyInput extends React.Component {
-   constructor(props) {
-     super(props); // This is required
-     const { initialValue } = props;
-     this.state = { value: initialValue, somethingElse: 5};
-   }
-   handleChange = ({target: {value}}) => {
-     this.setState({ value }); // Asynchronous!
-   }
-   render() {
-     const { value } = this.state;
-     const styles = {
-       border: `3px solid ${value === 'zielony' ? 'green' : 'red'}`,
-     };
-     return &lt;input type="text" value={value} style={style} onChange={this.handleChange} /&gt;
-   }
- }</code></pre>
-        </body>
-      </section>
-      <section id="end-17" data-transition="slide">
-        <h2></h2>
-        <body><img src="img/theend.png"/></body>
-      </section>
-    </div>
-  </div>
-  <script src="reveal.js-3.3.0/lib/js/head.min.js"></script>
-  <script src="reveal.js-3.3.0/js/reveal.js"></script>
-  <script>
-     Reveal.initialize({
-      // controls: true,
-     //  progress: true,
-       history: true,
-     //  center: true,
-     //  rollingLinks: true,
-    //   transition: "convex",
-       //- width: "90%",
-       //- height: 1.0,
-       dependencies: [
-         // Syntax highlight for <code> elements
-           {src: 'reveal.js-3.3.0/plugin/markdown/marked.js'},
-           {src: 'reveal.js-3.3.0/plugin/markdown/markdown.js'},
-           {src: 'reveal.js-3.3.0/plugin/notes/notes.js', async: true},
-           { src: 'reveal.js-3.3.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },         
-       ]
-     });
-  </script>
-</body>
+ }</code></pre></body></section><section id="14-react-extracting" data-transition="slide"><h2> Extracting Components</h2><body><pre><code class="js jsx">function Comment(props) {
+  return (
+    &lt;div className="Comment"&gt;
+      &lt;UserInfo user={props.author} /&gt;
+      &lt;div className="Comment-text"&gt;
+        {props.text}
+      &lt;/div&gt;
+      &lt;div className="Comment-date"&gt;
+        {formatDate(props.date)}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}</code></pre></body></section><section id="15-fancy-input" data-transition="slide"><h2>Fancy Input</h2><body></body></section><section id="16-state" data-transition="slide"><h2>Component state</h2><body><pre><code class="js jsx">class FancyInput extends React.Component {
+  constructor(props) {
+    super(props); // Call to base class is required
+    this.state = { value: props.initialValue };
+  }
+
+  render() {
+    const { value } = this.state;
+    return &lt;input type="text" value={value} /&gt;;
+  }
+}</code></pre><div class="fragment"><small>Usage:</small><pre><code class="js jsx">&lt;FancyInput initialValue="Type here..." /&gt;</code></pre></div></body></section><section id="17-events" data-transition="slide"><h2>Event handlers</h2><body><pre><code class="js jsx small">class FancyInput extends React.Component {
+  constructor(props) {
+    super(props); // Call to base class is required
+    this.state = { value: props.initialValue };
+  }
+
+  handleChange(event) {
+    console.log('Input value has changed!', event.target.value);
+  }
+
+  render() {
+    const { value } = this.state;
+    return &lt;input type="text" value={value} onChange={this.handleChange} /&gt;;
+  }
+}</code></pre></body></section><section id="18-events" data-transition="slide"><h2>Updating state</h2><body><pre><code class="js jsx small">class FancyInput extends React.Component {
+  constructor(props) {
+    super(props); // Call to base class is required
+    this.state = { value: props.initialValue, other: 5 };
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value })
+  }
+
+  render() {
+    const { value } = this.state;
+    return &lt;input type="text" value={value} onChange={this.handleChange.bind(this)} /&gt;;
+  }
+}</code></pre></body></section><section id="19-events" data-transition="slide"><h2>Styles</h2><body><pre><code class="js jsx small">class FancyInput extends React.Component {
+  constructor(props) {
+    super(props); // Call to base class is required
+    this.state = { value: props.initialValue, other: 5 };
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value })
+  }
+
+  render() {
+    const { value } = this.state;
+    const style = { border: `3px solid ${value === 'zielony' ? 'green' : 'red'}` };
+    return &lt;input type="text" style={style} value={value} onChange={this.handleChange.bind(this)} /&gt;;
+  }
+}</code></pre></body></section><section id="20-reactshop-0" data-transition="slide"><h2>Reactshop</h2><body><p>An online application for shopping made with React</p></body></section><section id="21-step-1" data-transition="slide"><h2>Step 1 - Warm up</h2><body><div class="left"><p class="small"> Our first goal is to create a Homepage that a user will see when
+ visiting our shop.<br> It will display the page layout and categories
+ available for shopping.</p><ul><li>Look around in <mark>App.js</mark>. It is a right place to render a grid of categories.<br></li><li>Add <mark>div</mark> container and some <mark>div</mark> elements inside it. <br>
+You can use <mark>category-grid</mark> and <mark>category-item</mark> classes 
+that already have some CSS styles assigned. Add a few categories.</li></ul></div></body></section></div></div><script src="reveal.js-3.3.0/lib/js/head.min.js"></script><script src="reveal.js-3.3.0/js/reveal.js"></script><script> Reveal.initialize({
+  // controls: true,
+ //  progress: true,
+   history: true,
+ //  center: true,
+ //  rollingLinks: true,
+//   transition: "convex",
+   //- width: "90%",
+   //- height: 1.0,
+   dependencies: [
+     // Syntax highlight for <code> elements
+       {src: 'reveal.js-3.3.0/plugin/markdown/marked.js'},
+       {src: 'reveal.js-3.3.0/plugin/markdown/markdown.js'},
+       {src: 'reveal.js-3.3.0/plugin/notes/notes.js', async: true},
+       { src: 'reveal.js-3.3.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },         
+   ]
+ });</script></body>

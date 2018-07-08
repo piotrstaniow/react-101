@@ -1,0 +1,16 @@
+extends ../layout.pug 
+
+block vars
+  - var title = 'jsx-expressions'
+
+block title
+  | JSX Harmony
+block content
+  p
+    | JSX allows using XML as an expression
+  pre.fragment
+    code.js
+      | const value = 5 + 4;
+  pre.fragment
+    code.js.jsx
+      | const element = &lt;h1&gt;Hello world&lt;/h1&gt;;

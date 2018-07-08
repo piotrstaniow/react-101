@@ -1,0 +1,34 @@
+extends ../layout.pug 
+
+block vars
+  - var title = 'react-components'
+
+block title
+  | Components
+block content
+  p
+    | There are two ways of writing components:
+  div.fragment
+    p.small
+      | Class components
+    pre
+      code.js.jsx
+        | import React from 'react';
+        |
+        | export class App extends React.Component {
+        |   render() {
+        |     return <h1>Welcome, {this.props.name}!</h1>;
+        |   }
+        | }
+
+  div.fragment
+    p.small
+      | Functional (stateless) components
+    pre
+      code.js.jsx
+        | import React from 'react';
+        |
+        | export function Welcome(props) {
+        |   return <h1>Welcome, {props.name}!</h1>;
+        | }
+

@@ -1,0 +1,20 @@
+extends ../layout.pug 
+
+block vars
+  - var title = 'react-dom'
+
+block title
+  | React DOM
+block content
+  p
+    | React is used to build Single Page Applications (SPA) 
+    | and&nbsp;hence it has a single root component.
+  pre.fragment
+    code.js.jsx
+      | import React from 'react';
+      | import ReactDOM from 'react-dom';
+      |
+      | ReactDOM.render(
+      |   <h1>Hello world</h1>,
+      |   document.querySelector('div#root'),
+      | );

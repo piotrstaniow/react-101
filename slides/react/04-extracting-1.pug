@@ -1,0 +1,27 @@
+extends ../layout.pug 
+
+block vars
+  - var title = 'react-extracting'
+
+block title
+  |  Extracting Components
+block content
+  pre
+    code.js.small
+      | export const Comment = (props) => (
+      |   &lt;div className="comment"&gt;
+      |     &lt;div className="user-info"&gt;
+      |       &lt;img className="avatar"
+      |         src={props.author.avatarUrl}
+      |         alt={props.author.name}
+      |       /&gt;
+      |       &lt;div className="user-name"&gt;
+      |         {props.author.name}
+      |       &lt;/div&gt;
+      |     &lt;/div&gt;
+      |     &lt;div className="comment-text"&gt; {props.text} &lt;/div&gt;
+      |     &lt;div className="comment-date"&gt; {formatDate(props.date)}&lt;/div&gt;
+      |   &lt;/div&gt;
+      | );
+  p.small
+    | Avatar and user info don't belong here
