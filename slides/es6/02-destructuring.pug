@@ -1,0 +1,26 @@
+extends ../layout.pug 
+
+block vars
+  - var title = 'es6-destructuring'
+
+block title
+    | Destructuring
+block content
+    p
+      | Shorthand notation for extracting properties
+    pre
+      code.js
+        | const obj = {
+        |   a: 1,
+        |   b: 2,
+        | }
+        | const arr = [5, 4, 3];
+        |
+        | const { a, b } = obj; // const a = obj.a; const b = obj.b;
+        | let [ p, q, r ] = arr; // const p = arr[0]; ...
+    pre.fragment
+      code.js
+        | function test({ a, b }, [p, q, r]) {
+        |   console.log(a, b, p, q, r);  
+        | }
+        | test(obj, arr); // Prints 1 2 5 4 3

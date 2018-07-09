@@ -1,0 +1,33 @@
+extends ../layout.pug 
+
+block vars
+  - var title = 'es6-class'
+
+block title
+    | Classes
+block content
+    p
+      | ES6 introduces new way of declaring classes
+    pre
+      code.js
+        | function Klass(a, b) {
+        |   this.member = 5;
+        |   this.member2 = 17;
+        | }
+        | Klass.prototype = new BaseClass();
+        | Klass.prototype.method = function() { 
+        |   return this.member;
+        | }
+        | var k = new Klass();
+    pre.fragment
+      code.js
+        | class Klass extends BaseClass {
+        |   member2 = 17; // Alternative
+        |   constructor() {
+        |     this.member = 5;
+        |   }
+        |   method() {
+        |     return this.member;
+        |   }
+        | }
+        | const k = new Klass;

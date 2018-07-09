@@ -5,7 +5,58 @@ link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js-3.3.0/css
 document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 
-</script></head></html><body><div class="reveal"><div class="slides">       <section id="0-title" data-transition="slide"><h2>Reactshop</h2><body><p>Introduction to React</p><p class="small">Workshop by Piotr Staniów</p></body></section><section id="1-agenda" data-transition="slide"><h2>Reactshop - Agenda</h2><body><ul><li><em>ES6</em> recap</li><li>Introduction to <em>JSX</em></li><li>Introduction to <em>React</em></li><li><em>Reactshop</em> - live coding session</li></ul></body></section><section id="2-jsx-intro" data-transition="slide"><h2>JSX Harmony</h2><body><ul><li class="fragment">It's an extension of JavaScript</li><li class="fragment">Allows embedding XML in JavaScript</li><li class="fragment">It's not required to use React but it's convenient</li></ul></body></section><section id="3-jsx-expressions" data-transition="slide"><h2>JSX Harmony</h2><body><p>JSX allows using XML as an expression</p><pre class="fragment"><code class="js">const value = 5 + 4;</code></pre><pre class="fragment"><code class="js jsx">const element = &lt;h1&gt;Hello world&lt;/h1&gt;;</code></pre></body></section><section id="4-jsx-transpiling" data-transition="slide"><h2>JSX Harmony</h2><body><p>JSX is transpiled* to React functions calls</p><pre class="fragment"><code class="js jsx">const element = &lt;div className="header"&gt;Hello world!&lt;/div&gt;;</code></pre><div class="fragment"><small>is transpiled to:</small><pre class="flat"><code class="js">const element = React.createElement({
+</script></head></html><body><div class="reveal"><div class="slides">       <section id="0-title" data-transition="slide"><h2>Reactshop</h2><body><p>Introduction to React</p><p class="small">Workshop by Piotr Staniów</p></body></section><section id="1-agenda" data-transition="slide"><h2>Reactshop - Agenda</h2><body><ul><li><em>ES6</em> recap</li><li>Introduction to <em>JSX</em></li><li>Introduction to <em>React</em></li><li><em>Reactshop</em> - live coding session</li></ul></body></section><section id="2-es6-intro" data-transition="slide"><h2>ECMAScript 6</h2><body><p>ECMA-262 is the de facto standard for JavaScript language implementation<br>
+We'll review some features in versions 2015+</p></body></section><section id="3-es6-variables" data-transition="slide"><h2>Scope of variables</h2><body><p class="small">Lexically bound variables</p><pre><code class="js">function(x) {
+  var a = 5;
+  if (x) {
+    var b = 3;
+  }
+  // Both a and b are declared here
+}</code></pre><div class="fragment"><p class="small">Block-scoped variables</p><pre><code class="js">function(x) {
+  let a = 5;
+  const b = { p: 3 }; // Constant reference
+  if (x) {
+    let c = 17;
+    const d = 0;
+  }
+  // Only a and b are declared here
+  b.p = 7; // VALID
+  b = { q: 3 }; // TypeError
+}</code></pre></div></body></section><section id="4-es6-destructuring" data-transition="slide"><h2>Destructuring</h2><body><p>Shorthand notation for extracting properties</p><pre><code class="js">const obj = {
+  a: 1,
+  b: 2,
+}
+const arr = [5, 4, 3];
+
+const { a, b } = obj; // const a = obj.a; const b = obj.b;
+let [ p, q, r ] = arr; // const p = arr[0]; ...</code></pre><pre class="fragment"><code class="js">function test({ a, b }, [p, q, r]) {
+  console.log(a, b, p, q, r);  
+}
+test(obj, arr); // Prints 1 2 5 4 3</code></pre></body></section><section id="5-es6-arrow" data-transition="slide"><h2>Arrow Function (Lambda)</h2><body><pre><code class="js">function ex1(a, b) {
+  console.log(a, b);
+  return a + b;
+}</code></pre><pre class="fragment"><code class="js">const ex2 = (a, b) => {
+  console.log(a, b);
+  return a + b;
+}</code></pre><pre class="fragment"><code class="js">const ex3 = (a, b) => a + b;
+const ex4 = a => 5 * a;</code></pre><p class="fragment small">Arrow function does not bind `this` - it's used as variables from closures</p></body></section><section id="6-es6-class" data-transition="slide"><h2>Classes</h2><body><p>ES6 introduces new way of declaring classes</p><pre><code class="js">function Klass(a, b) {
+  this.member = 5;
+  this.member2 = 17;
+}
+Klass.prototype = new BaseClass();
+Klass.prototype.method = function() { 
+  return this.member;
+}
+var k = new Klass();</code></pre><pre class="fragment"><code class="js">class Klass extends BaseClass {
+  member2 = 17; // Alternative
+  constructor() {
+    this.member = 5;
+  }
+  method() {
+    return this.member;
+  }
+}
+const k = new Klass;</code></pre></body></section><section id="7-es6-outro" data-transition="slide"><h2>Other features</h2><body><p>ES6 and newer introduce also other features, including:</p><ul class="small"><li>Default function parameters <code class="small">(a = 3) => a</code></li><li>Rest parameter <code class="small">(a, ...rest) => a</code></li><li>Spread operator <code class="small">{ ...shallowCopy, a: 3 }</code></li><li>Template literals <code class="small">`Hello ${name}`</code></li><li>Property shorthand: <code class="small">{ a: a }</code> becomes <code class="small">{ a }</code></li><li>for-of loops</li><li>Generator function <code class="small">function*() { yield 5; }</code></li><li>Promises <code class="small">Promise.resolve(5).then(k => 3).finally()</code></li><li>async/await</li><li><code class="small">Object.entries({ a: 5})</code> and <code class="small">Object.values({ a: 5})</code></li></ul></body></section><section id="8-jsx-intro" data-transition="slide"><h2>JSX Harmony</h2><body><ul><li class="fragment">It's an extension of JavaScript</li><li class="fragment">Allows embedding XML in JavaScript</li><li class="fragment">It's not required to use React but it's convenient</li></ul></body></section><section id="9-jsx-expressions" data-transition="slide"><h2>JSX Harmony</h2><body><p>JSX allows using XML as an expression</p><pre class="fragment"><code class="js">const value = 5 + 4;</code></pre><pre class="fragment"><code class="js jsx">const element = &lt;h1&gt;Hello world&lt;/h1&gt;;</code></pre></body></section><section id="10-jsx-transpiling" data-transition="slide"><h2>JSX Harmony</h2><body><p>JSX is transpiled* to React functions calls</p><pre class="fragment"><code class="js jsx">const element = &lt;div className="header"&gt;Hello world!&lt;/div&gt;;</code></pre><div class="fragment"><small>is transpiled to:</small><pre class="flat"><code class="js">const element = React.createElement({
   'div',
   { className: 'header' },
   'Hello world!'
@@ -15,19 +66,19 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
     className: 'header',
     children: 'Hello world!',
   },
-};</code></pre></div><small>*mix of words: translate & compile</small></body></section><section id="5-jsx-embedding-expressions" data-transition="slide"><h2>JSX Harmony</h2><body><p>You can embed JavaScript expressions in JSX too</p><small>{ Simply put them in brackets }</small><pre class="fragment"><code class="js jsx">const name = 'Thomas';
+};</code></pre></div><small>*mix of words: translate & compile</small></body></section><section id="11-jsx-embedding-expressions" data-transition="slide"><h2>JSX Harmony</h2><body><p>You can embed JavaScript expressions in JSX too</p><small>{ Simply put them in brackets }</small><pre class="fragment"><code class="js jsx">const name = 'Thomas';
 const element = &lt;div className="header"&gt;Hello {name}!&lt;/div&gt;;</code></pre><div class="fragment"><small>You can go crazy with it too...</small><pre class="flat"><code class="js jsx">const element = (
   &lt;ul&gt;
     { ['A', 'B', 'C'].map(el =&gt; &lt;li key={el}&gt;{el}&lt;/li&gt;) }
   &lt;/ul&gt;
-);</code></pre></div></body></section><section id="6-jsx-outro" data-transition="slide"><h2>JSX Harmony</h2><body><p></p>That's it for JSX!</body></section><section id="7-react-intro" data-transition="slide"><h2>React</h2><body><p class="blockquote">The main purpose of each web framework is to extend HTML with custom <code>&lt;elements&gt;</code> and attributes</p><em class="fragment">...and to encapsulate some logic tied to them.</em></body></section><section id="8-react-dom" data-transition="slide"><h2>React DOM</h2><body><p>React is used to build Single Page Applications (SPA) 
+);</code></pre></div></body></section><section id="12-jsx-outro" data-transition="slide"><h2>JSX Harmony</h2><body><p></p>That's it for JSX!</body></section><section id="13-react-intro" data-transition="slide"><h2>React</h2><body><p class="blockquote">The main purpose of each web framework is to extend HTML with custom <code>&lt;elements&gt;</code> and attributes</p><em class="fragment">...and to encapsulate some logic tied to them.</em></body></section><section id="14-react-dom" data-transition="slide"><h2>React DOM</h2><body><p>React is used to build Single Page Applications (SPA) 
 and&nbsp;hence it has a single root component.</p><pre class="fragment"><code class="js jsx">import React from 'react';
 import ReactDOM from 'react-dom';
 
 ReactDOM.render(
   <h1>Hello world</h1>,
   document.querySelector('div#root'),
-);</code></pre></body></section><section id="9-react-components" data-transition="slide"><h2>Components</h2><body><p>There are two ways of writing components:</p><div class="fragment"><p class="small">Class components</p><pre><code class="js jsx">import React from 'react';
+);</code></pre></body></section><section id="15-react-components" data-transition="slide"><h2>Components</h2><body><p>There are two ways of writing components:</p><div class="fragment"><p class="small">Class components</p><pre><code class="js jsx">import React from 'react';
 
 export class App extends React.Component {
   render() {
@@ -37,7 +88,7 @@ export class App extends React.Component {
 
 export function Welcome(props) {
   return <h1>Welcome, {props.name}!</h1>;
-}</code></pre></div></body></section><section id="10-react-composing" data-transition="slide"><h2>Composing components</h2><body><pre><code class="js jsx">function Welcome(props) {
+}</code></pre></div></body></section><section id="16-react-composing" data-transition="slide"><h2>Composing components</h2><body><pre><code class="js jsx">function Welcome(props) {
   return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
 }</code></pre><pre class="fragment"><code class="js jsx">export class App extends React.Component {
   return (
@@ -50,7 +101,7 @@ export function Welcome(props) {
 }</code></pre><pre class="fragment"><code class="js jsx">ReactDOM.render(
   &lt;App /&gt;,
   document.getElementById('root')
-);</code></pre></body></section><section id="11-react-extracting" data-transition="slide"><h2> Extracting Components</h2><body><pre><code class="js small">export const Comment = (props) => (
+);</code></pre></body></section><section id="17-react-extracting" data-transition="slide"><h2> Extracting Components</h2><body><pre><code class="js small">export const Comment = (props) => (
   &lt;div className="comment"&gt;
     &lt;div className="user-info"&gt;
       &lt;img className="avatar"
@@ -64,7 +115,7 @@ export function Welcome(props) {
     &lt;div className="comment-text"&gt; {props.text} &lt;/div&gt;
     &lt;div className="comment-date"&gt; {formatDate(props.date)}&lt;/div&gt;
   &lt;/div&gt;
-);</code></pre><p class="small">Avatar and user info don't belong here</p></body></section><section id="12-react-extracting" data-transition="slide"><h2> Extracting Components</h2><body><pre><code class="js jsx">function Avatar(props) {
+);</code></pre><p class="small">Avatar and user info don't belong here</p></body></section><section id="18-react-extracting" data-transition="slide"><h2> Extracting Components</h2><body><pre><code class="js jsx">function Avatar(props) {
    return (
      &lt;img className="Avatar"
        src={props.user.avatarUrl}
@@ -80,7 +131,7 @@ export function Welcome(props) {
       &lt;/div&gt;
     &lt;/div&gt;
   );
-}</code></pre><p class="small">Let's see it in action...</p></body></section><section id="13-react-extracting" data-transition="slide"><h2> Extracting Components</h2><body><pre><code class="js small"> function Comment(props) {
+}</code></pre><p class="small">Let's see it in action...</p></body></section><section id="19-react-extracting" data-transition="slide"><h2> Extracting Components</h2><body><pre><code class="js small"> function Comment(props) {
    return (
      &lt;div className="Comment"&gt;
        &lt;div className="UserInfo"&gt;
@@ -93,7 +144,7 @@ export function Welcome(props) {
        &lt;div className="Comment-date"&gt;{formatDate(props.date)}&lt;/div&gt;
      &lt;/div&gt;
    );
- }</code></pre></body></section><section id="14-react-extracting" data-transition="slide"><h2> Extracting Components</h2><body><pre><code class="js jsx">function Comment(props) {
+ }</code></pre></body></section><section id="20-react-extracting" data-transition="slide"><h2> Extracting Components</h2><body><pre><code class="js jsx">function Comment(props) {
   return (
     &lt;div className="Comment"&gt;
       &lt;UserInfo user={props.author} /&gt;
@@ -105,7 +156,7 @@ export function Welcome(props) {
       &lt;/div&gt;
     &lt;/div&gt;
   );
-}</code></pre></body></section><section id="15-fancy-input" data-transition="slide"><h2>Fancy Input</h2><body></body></section><section id="16-state" data-transition="slide"><h2>Component state</h2><body><pre><code class="js jsx">class FancyInput extends React.Component {
+}</code></pre></body></section><section id="21-fancy-input" data-transition="slide"><h2>Fancy Input</h2><body></body></section><section id="22-state" data-transition="slide"><h2>Component state</h2><body><pre><code class="js jsx">class FancyInput extends React.Component {
   constructor(props) {
     super(props); // Call to base class is required
     this.state = { value: props.initialValue };
@@ -115,7 +166,7 @@ export function Welcome(props) {
     const { value } = this.state;
     return &lt;input type="text" value={value} /&gt;;
   }
-}</code></pre><div class="fragment"><small>Usage:</small><pre><code class="js jsx">&lt;FancyInput initialValue="Type here..." /&gt;</code></pre></div></body></section><section id="17-events" data-transition="slide"><h2>Event handlers</h2><body><pre><code class="js jsx small">class FancyInput extends React.Component {
+}</code></pre><div class="fragment"><small>Usage:</small><pre><code class="js jsx">&lt;FancyInput initialValue="Type here..." /&gt;</code></pre></div></body></section><section id="23-events" data-transition="slide"><h2>Event handlers</h2><body><pre><code class="js jsx small">class FancyInput extends React.Component {
   constructor(props) {
     super(props); // Call to base class is required
     this.state = { value: props.initialValue };
@@ -129,7 +180,7 @@ export function Welcome(props) {
     const { value } = this.state;
     return &lt;input type="text" value={value} onChange={this.handleChange} /&gt;;
   }
-}</code></pre></body></section><section id="18-events" data-transition="slide"><h2>Updating state</h2><body><pre><code class="js jsx small">class FancyInput extends React.Component {
+}</code></pre></body></section><section id="24-events" data-transition="slide"><h2>Updating state</h2><body><pre><code class="js jsx small">class FancyInput extends React.Component {
   constructor(props) {
     super(props); // Call to base class is required
     this.state = { value: props.initialValue, other: 5 };
@@ -143,7 +194,7 @@ export function Welcome(props) {
     const { value } = this.state;
     return &lt;input type="text" value={value} onChange={this.handleChange.bind(this)} /&gt;;
   }
-}</code></pre></body></section><section id="19-events" data-transition="slide"><h2>Styles</h2><body><pre><code class="js jsx small">class FancyInput extends React.Component {
+}</code></pre></body></section><section id="25-events" data-transition="slide"><h2>Styles</h2><body><pre><code class="js jsx small">class FancyInput extends React.Component {
   constructor(props) {
     super(props); // Call to base class is required
     this.state = { value: props.initialValue, other: 5 };
@@ -158,7 +209,7 @@ export function Welcome(props) {
     const style = { border: `3px solid ${value === 'zielony' ? 'green' : 'red'}` };
     return &lt;input type="text" style={style} value={value} onChange={this.handleChange.bind(this)} /&gt;;
   }
-}</code></pre></body></section><section id="20-reactshop-0" data-transition="slide"><h2>Reactshop</h2><body><p>An online application for shopping made with React</p></body></section><section id="21-step-1" data-transition="slide"><h2>Step 1 - Warm up</h2><body><div class="left"><p class="small"> Our first goal is to create a Homepage that a user will see when
+}</code></pre></body></section><section id="26-reactshop-0" data-transition="slide"><h2>Reactshop</h2><body><p>An online application for shopping made with React</p></body></section><section id="27-step-1" data-transition="slide"><h2>Step 1 - Warm up</h2><body><div class="left"><p class="small"> Our first goal is to create a Homepage that a user will see when
  visiting our shop.<br> It will display the page layout and categories
  available for shopping.</p><ul><li>Look around in <mark>App.js</mark>. It is a right place to render a grid of categories.<br></li><li>Add <mark>div</mark> container and some <mark>div</mark> elements inside it. <br>
 You can use <mark>category-grid</mark> and <mark>category-item</mark> classes 

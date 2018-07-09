@@ -1,0 +1,21 @@
+extends ../layout.pug 
+
+block vars
+  - var title = 'es6-outro'
+
+block title
+    | Other features
+block content
+    p
+      | ES6 and newer introduce also other features, including:
+    ul.small
+      li Default function parameters <code class="small">(a = 3) => a</code>
+      li Rest parameter <code class="small">(a, ...rest) => a</code>
+      li Spread operator <code class="small">{ ...shallowCopy, a: 3 }</code>
+      li Template literals <code class="small">`Hello ${name}`</code>
+      li Property shorthand: <code class="small">{ a: a }</code> becomes <code class="small">{ a }</code>
+      li for-of loops
+      li Generator function <code class="small">function*() { yield 5; }</code>
+      li Promises <code class="small">Promise.resolve(5).then(k => 3).finally()</code>
+      li async/await
+      li <code class="small">Object.entries({ a: 5})</code> and <code class="small">Object.values({ a: 5})</code>

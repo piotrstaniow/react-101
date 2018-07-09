@@ -1,0 +1,35 @@
+extends ../layout.pug 
+
+block vars
+  - var title = 'es6-variables'
+
+block title
+    | Scope of variables
+block content
+    p.small
+      | Lexically bound variables
+    pre
+      code.js
+        | function(x) {
+        |   var a = 5;
+        |   if (x) {
+        |     var b = 3;
+        |   }
+        |   // Both a and b are declared here
+        | }
+    div.fragment
+      p.small
+        | Block-scoped variables
+      pre
+        code.js
+          | function(x) {
+          |   let a = 5;
+          |   const b = { p: 3 }; // Constant reference
+          |   if (x) {
+          |     let c = 17;
+          |     const d = 0;
+          |   }
+          |   // Only a and b are declared here
+          |   b.p = 7; // VALID
+          |   b = { q: 3 }; // TypeError
+          | }
