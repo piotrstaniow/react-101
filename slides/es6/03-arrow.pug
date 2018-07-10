@@ -1,0 +1,26 @@
+extends ../layout.pug 
+
+block vars
+  - var title = 'es6-arrow'
+
+block title
+    | Arrow Function (Lambda)
+block content
+    pre
+      code.js
+        | function ex1(a, b) {
+        |   console.log(a, b);
+        |   return a + b;
+        | }
+    pre.fragment
+      code.js
+        | const ex2 = (a, b) => {
+        |   console.log(a, b);
+        |   return a + b;
+        | }
+    pre.fragment
+      code.js
+        | const ex3 = (a, b) => a + b;
+        | const ex4 = a => 5 * a;
+    p.fragment.small
+      | Arrow function does not bind `this` - it's used as variables from closures

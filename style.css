@@ -77,3 +77,13 @@
 .reveal .quote{
     font-size: 40%;
 }
+
+code.small {
+    background: rgba(0, 128, 255, 0.25);
+    padding: 0.1rem;
+}
+
+ul.small {
+  font-size: 2rem;
+}
+
