@@ -91,13 +91,15 @@ export function Welcome(props) {
 }</code></pre></div></body></section><section id="16-react-composing" data-transition="slide"><h2>Composing components</h2><body><pre><code class="js jsx">function Welcome(props) {
   return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
 }</code></pre><pre class="fragment"><code class="js jsx">export class App extends React.Component {
-  return (
-    &lt;div&gt;
-      &lt;Welcome name="Sara" /&gt;
-      &lt;Welcome name="Cahal" /&gt;
-      &lt;Welcome name="Edite" /&gt;
-    &lt;/div&gt;
-  );
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;Welcome name="Sara" /&gt;
+        &lt;Welcome name="Cahal" /&gt;
+        &lt;Welcome name="Edite" /&gt;
+      &lt;/div&gt;
+    );
+  }
 }</code></pre><pre class="fragment"><code class="js jsx">ReactDOM.render(
   &lt;App /&gt;,
   document.getElementById('root')
